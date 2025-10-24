@@ -104,6 +104,8 @@ jobs:
           bundler: 2
       - name: bundle install
         run:  bundle install --jobs 4 --retry 3
+        env:
+          MONGOID_VERSION: ${{ matrix.mongoid }}
       - name: test
         timeout-minutes: 10
         run: bundle exec rake spec
